@@ -38,11 +38,11 @@ void printHeading();
 void enqueue(Person*& front, Person*& rear);
 
 /*
- * dequeue
+ * dequeue - Remove a person from the queue
  * @param front - Pointer to the front of the queue
  * @param rear - Pointer to the rear of the queue
  */
-void dequeue(Person* &front, Person*& rear);
+void dequeue(Person* &front);
 
 /*
  * IsEmpty - Check if the stack is empty
@@ -52,19 +52,20 @@ void dequeue(Person* &front, Person*& rear);
 bool isEmpty(Person* front);
 
 /*
- * front
+ * front - Get the front of the queue
  * @param front - Pointer to the front of the queue
  */
 void front(Person* front);
 
 /*
- * size
+ * size - Get the size of the queue
  * @param front - Pointer to the front of the queue
+ * @return int - Size of the queue
  */
 int size(Person* front);
 
 /*
- * clear
+ * clear - Clear the queue
  * @param front - Pointer to the front of the queue
  */
 void clear(Person* &front);

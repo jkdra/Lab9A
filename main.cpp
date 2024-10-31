@@ -20,12 +20,14 @@ using namespace std;
 
 // main
 int main() {
-    Person* queueFront = nullptr;  // Pointer to the front of the queue
-    Person* rear = nullptr;   // Pointer to the rear of the queue
-    int menuInput;           // INPUT - User's input choice
+    Person* queueFront = nullptr;  // POINTER - Pointer to the front of the queue
+    Person* rear = nullptr;        // POINTER - Pointer to the rear of the queue
+    int menuInput;                 // INPUT - User's input choice
 
+    // Print Lab Heading
     printHeading();
 
+    // Show Menu in a loop
     do {
         cout
         << "\n\nQUEUE MENU:\n"
@@ -64,12 +66,12 @@ int main() {
                 // Do nothing, program will exit
                 break;
             case 1:
-                // Add a person to the queur
+                // Add a person to the queue
                 enqueue(queueFront, rear);
                 break;
             case 2:
                 // Remove a person from the queue
-                dequeue(queueFront, rear);
+                dequeue(queueFront);
                 break;
             case 3:
                 cout << (isEmpty(queueFront) ? "Yes, the QUEUE is empty." : "The QUEUE is NOT empty.") << endl;

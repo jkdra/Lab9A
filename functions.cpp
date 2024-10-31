@@ -7,8 +7,8 @@
 
 /*
  * enqueue - Add a person to the queue
- * @param top - Pointer to the top of the stack
- * @return void
+ * @param front - Pointer to the front of the queue
+ * @param rear - Pointer to the rear of the queue
  */
 void enqueue(Person*& front, Person*& rear) {
 
@@ -33,7 +33,6 @@ void enqueue(Person*& front, Person*& rear) {
     cout << "\n\n";
 
     Person* newPerson = new Person{name, gender, age, nullptr};
-
     if (rear == nullptr) {  // Queue is empty
         front = rear = newPerson;
     } else {  // Add new person at the end
@@ -44,9 +43,10 @@ void enqueue(Person*& front, Person*& rear) {
 
 /*
  * dequeue - Remove a person from the queue
- * @return void
+ * @param front - Pointer to the front of the queue
+ * @param rear - Pointer to the rear of the queue
  */
-void dequeue(Person*& front, Person*& rear) {
+void dequeue(Person*& front) {
     if (front == nullptr) cout << "Can't DEQUEUE from an empty queue!" << endl;
     else {
         cout << "DEQUEUEING\n"
@@ -56,18 +56,13 @@ void dequeue(Person*& front, Person*& rear) {
 
         Person* temp = front;
         front = front->next;
-
-        if (front == nullptr) {  // Queue is now empty
-            rear = nullptr;
-        }
-
         delete temp;
     }
 }
 
 /*
- * isEmpty - Check if the stack is empty
- * @param top - Pointer to the top of the stack
+ * IsEmpty - Check if the stack is empty
+ * @param front - Pointer to the front of the queue
  * @return bool - True if the stack is empty, false otherwise
  */
 bool isEmpty(Person* front) { return front == nullptr; }
@@ -89,12 +84,12 @@ void front(Person* front) {
 
 /*
  * size - Get the size of the queue
- * @param top - Pointer to the top of the stack
+ * @param front - Pointer to the front of the queue
  * @return int - Size of the queue
  */
-int size(Person* top) {
+int size(Person* front) {
     int count = 0;
-    Person* current = top;
+    Person* current = front;
     while (current != nullptr) {
         count++;
         current = current->next;
